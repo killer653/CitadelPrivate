@@ -1117,6 +1117,11 @@
 					if(H == user)
 					var/buttspace = B.capacity - B.stored
 					if(!I.itemstorevalue)
+						switch(I.w_class)
+							if(1) I.itemstorevalue += 1 // tiny
+							if(2) I.itemstorevalue += 2 // small
+							if(3) I.itemstorevalue += 4 // normal
+							else I.itemstorevalue += 10 // This should fix it.
 						if(B.stored < B.capacity && I.itemstorevalue <= buttspace)	
 							user.drop_item()
 							B.contents += I
@@ -1126,6 +1131,11 @@
 					else
 					var/buttspace = B.capacity - B.stored
 					if(!I.itemstorevalue)
+						switch(I.w_class)
+							if(1) I.itemstorevalue += 1 // tiny
+							if(2) I.itemstorevalue += 2 // small
+							if(3) I.itemstorevalue += 4 // normal
+							else I.itemstorevalue += 10 // This should fix it.
 						if(B.stored < B.capacity && I.itemstorevalue <= buttspace)
 							user.drop_item()
 							B.contents += I
