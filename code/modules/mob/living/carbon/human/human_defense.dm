@@ -334,7 +334,7 @@ emp_act
 				if(do_mob(user, src, 40))
 					if(B.contents.len)
 						if(user == src)
-							user.visible_message("<span class='warning'>[user] reaches down his own throat!</span>", "<span class='warning'>You reach down into your throat!</span>")
+							user.visible_message("<span class='warning'>[user] reaches down their own throat!</span>", "<span class='warning'>You reach down into your throat!</span>")
 						else
 							user.visible_message("<span class='warning'>[user] reaches down into [src]'s throat!</span>", "<span class='warning'>You reach down [src]'s throat!</span>")
 						var/obj/item/O = pick(B.contents)
@@ -347,7 +347,7 @@ emp_act
 						return 0
 				else
 					if(user == src)
-						user.visible_message("<span class='warning'>[user] fails to reach down his own stomach!</span>", "<span class='warning'>You fail to reach down your stomach!</span>")
+						user.visible_message("<span class='warning'>[user] fails to reach down their own stomach!</span>", "<span class='warning'>You fail to reach down your stomach!</span>")
 					else
 						user.visible_message("<span class='warning'>[user] fails to reach down [src]'s stomach!</span>", "<span class='warning'>You fail to reach down [src]'s stomach!</span>")
 					return 0
@@ -356,12 +356,13 @@ emp_act
 				return 0
 		else
 			if(user == src)
-				user.visible_message("<span class='warning'>[user] grabs his own stomach!</span>", "<span class='warning'>You grab your own stomach!</span>")
-				user << "<span class='warning'>You'll need to remove your jumpsuit first!</span>"
+				user.visible_message("<span class='warning'>[user] reaches down his own throat!</span>", "<span class='warning'>You reach down into your throat!</span>")
 			else
-				user.visible_message("<span class='warning'>[user] grabs [src]'s stomach!</span>", "<span class='warning'>You grab [src]'s stomach!</span>")
-				user << "<span class='warning'>You'll need to remove [src]'s jumpsuit first!</span>"
-				src << "<span class='warning'>You feel your stomach being grabbed!</span>"
+				user.visible_message("<span class='warning'>[user] reaches down into [src]'s throat!</span>", "<span class='warning'>You reach down [src]'s throat!</span>")
+			var/obj/item/O = pick(B.contents)
+			O.loc = get_turf(src)
+			B.contents -= O
+			B.stored -= O.itemstorevalue
 			return 0
 	if(w_uniform)
 		w_uniform.add_fingerprint(user)
