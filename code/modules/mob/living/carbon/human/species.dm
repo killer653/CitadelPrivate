@@ -1129,7 +1129,7 @@
 							B.contents += I
 							I.add_blood(H)
 							B.stored += I.itemstorevalue
-							user.visible_message("<span class='warning'>[user] shoves [I] down into their throat.</span>", "<span class='warning'>You shove [I] down your own throat.</span>")
+							user.visible_message("<span class='warning'>[user] shoves [I] down [H]'s throat.</span>", "<span class='warning'>You shove [I] down [H]'s throat.</span>")
 					return 0
 			else
 				if(H == user)
