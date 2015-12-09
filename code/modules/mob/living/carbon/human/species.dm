@@ -1116,6 +1116,8 @@
 						return 0
 				else
 					if(H == user)
+					var/buttspace = B.capacity - B.stored
+					if(!I.itemstorevalue)
 						if(B.stored < B.capacity && I.itemstorevalue <= buttspace)	
 							user.drop_item()
 							B.contents += I
@@ -1124,6 +1126,8 @@
 							user.visible_message("<span class='warning'>[user] shoves [I] down into their throat.</span>", "<span class='warning'>You shove [I] down your own throat.</span>")
 							return 1
 					else
+					var/buttspace = B.capacity - B.stored
+					if(!I.itemstorevalue)
 						if(B.stored < B.capacity && I.itemstorevalue <= buttspace)
 							user.drop_item()
 							B.contents += I
