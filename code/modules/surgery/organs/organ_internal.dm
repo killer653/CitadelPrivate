@@ -181,8 +181,8 @@
 /obj/item/organ/internal/stomach 
 	name = "stomach"
 	desc = "extremely treasured body part"
-	icon_state = "butt" //placeholder
-	item_state = "butt" //placeholder
+	icon_state = "stomach-x" //placeholder
+	item_state = "stomach-x" //placeholder
 	zone = "chest"
 	slot = "butt" //I'm not going to mess with this. This works well enough for the code.
 	throwforce = 0
