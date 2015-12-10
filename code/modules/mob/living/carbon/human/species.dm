@@ -1129,18 +1129,17 @@
 							user.visible_message("<span class='warning'>[user] shoves [I] down into their throat.</span>", "<span class='warning'>You shove [I] down your own throat.</span>")
 							return 1
 					else
-					var/buttspace = B.capacity - B.stored
-					if(!I.itemstorevalue)
-						switch(I.w_class)
-							if(1) I.itemstorevalue += 1 // tiny
-							if(2) I.itemstorevalue += 2 // small
-							if(3) I.itemstorevalue += 4 // normal
-							else I.itemstorevalue += 10 // This should fix it.
-						if(B.stored < B.capacity && I.itemstorevalue <= buttspace)
-							user.drop_item()
-							B.contents += I
-							B.stored += I.itemstorevalue
-							user.visible_message("<span class='warning'>[user] shoves [I] down [H]'s throat.</span>", "<span class='warning'>You shove [I] down [H]'s throat.</span>")
+						if(!I.itemstorevalue)
+							switch(I.w_class)
+								if(1) I.itemstorevalue += 1 // tiny
+								if(2) I.itemstorevalue += 2 // small
+								if(3) I.itemstorevalue += 4 // normal
+								else I.itemstorevalue += 10 // This should fix it.
+							if(B.stored < B.capacity && I.itemstorevalue <= buttspace)
+								user.drop_item()
+								B.contents += I
+								B.stored += I.itemstorevalue
+								user.visible_message("<span class='warning'>[user] shoves [I] down [H]'s throat.</span>", "<span class='warning'>You shove [I] down [H]'s throat.</span>")
 					return 0
 			else
 				if(H == user)
